@@ -1,0 +1,422 @@
+/////////////////////////////////////////////////////////////////////
+//                                                                 //
+//                   MP3 - Master Player 3xtreme                   //
+//                     mp3 player and organizer                    //
+//                                                                 //
+//                  Copyright © Ellrohir 2007-2008                 //
+//                                                                 //
+//                                                                 //
+//    Page Info                                                    //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// *  Author:         *  Ellrohir [ ellrohir@seznam.cz ]         * //
+// *  Homepage:       *  http://ellrohir.xf.cz/                  * //
+// *  File:           *  Reference.txt                           * //
+// *  Purpose:        *  Program overview and reference          * //
+// *  System Version: *  1.0                                     * //
+// *  Last Modified:  *  2008-03-10 1300 GMT+1                   * //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+/////////////////////////////////////////////////////////////////////
+
+
+Programová dokumentace k aplikaci MP3 - Master Player 3xtreme 
+
+OBSAH :
+
+1. STRUÈNİ PØEHLED
+2. ÚVOD
+   2.1 Obecné
+   2.2 Co chybí
+   2.3 Upozornìní
+3. PROGRAMOVÁ DOKUMENTACE
+4. SEZNAM SOUBORÙ APLIKACE
+5. ZÁVÌR
+
+
+1. STRUÈNİ PØEHLED
+
+- Pøehled funkcí
+
+Pøehrávání mp3 souborù
+Správa ID3 tagù - ID3v1 a ID3v2
+Organizace mp3 souborù na disku
+
+- Pouité technologie
+
+Borland Delphi 6.0 Personal
+Borland Image Editor na tvorbu ikony programu
+PSPad 4.5.0 na editaci .lng jazykovıch souborù
+Id3v1 Reader na práci s ID3v1 tagy od Martina Šustka ( http://www.pcsvet.cz/art/author.php?id=7509 ) (pøejatı postup)
+Id3v2.dcu knihovna na práci s ID3v2 tagy od Jamese Webba ( http://www.audioxl.com )
+Tøída TMixer na ovládání hlasitosti od uivatele Ferdabasek (kód zveøejnìn na diskusním fóru http://forum.builder.cz)
+Metody na práci (kopírování, mazání, pøesouvání) s adresáøi od Rainera Kümmerla (kód zveøejnìn na stránkách http://www.swissdelphicenter.ch/)
+
+2. ÚVOD
+
+2.1 Obecné
+
+a) Úvod kritckı
+
+  Nìkdo mi øíkal, e pravdomluvnost mì jednou pøivede do záhuby... A nejspíš na tom nìco bude, protoe já nemùu jinak
+ne zaèít tuto referenci jinak, ne vlastní sebekritikou a kritikou vısledného programu, kterı pøedkládám. Ale vìci se
+tak bohuel mají - mùj program není dobrı, je zbyteènì sloitı a dìlá zbyteènì moc vìcí a co je horší, nedìlá je dobøe
+a na "úrovni". Navenek vypadá docela slušnì, ale to mùe zajímat laika. Programátor, kterı by nahlédl zdrojovı kód, by
+se mìl oprávnìnì zhrozit... Je to trošku podivné zaèít pøedstavování programu takhle, ale já sám to tak vidím a navíc
+si myslím, e to, e se pøiznám dobrovolnì, mùe bıt bráno jako polehèující okolnost pøi následném hodnocení. :)
+  Asi není právì nejlepší vizitkou, e programová dokumentace zaèíná právì takto, ale nemùu si pomoct - programu MP3 by
+nejvíce slušel kompeltní vımaz zdrojového kódu a kompletní pøepracování. Bohuel na to vzhledem k rozsahu aplikace
+nezbyl èas, a tak je tøeba ohánìt se tím, co bylo vytvoøeno. Vytvoøen byl nesourodı slepenec, kterı drí pohromadì silou
+vùle a jak tak dìlá to, co dìlat má. Bohuel se nedá tvrdit, e to dìlá nejefektivnìjším monım zpùsobem, a ani to, e
+to dìlá systematicky.
+  Bìhem jeho programování jsem toti porušil asi všechny zásady "správného programování". Èásteènì mì snad omlouvá to, e
+to vedle nepøíliš rozsáhlého maturitního programu je toto první vìtší aplikace, kterou jsem dotáhl jak tak do konce.
+Ale to je samozøejmì trochu chabá vımluva. Pøi programování jsem postupoval metodou - "píšu, co mì právì napadá a jak mì
+to právì napadá a èasem se vrátím, abych to tøeba zefektivni". Vısledkem tohoto bylo, e jsem po èase naprosto netušil, 
+co a jak jsem to vlastnì u napsal. I kdy jsem se snail své dílo štìdøe komentovat, obèas se v tom nešlo vyznat, obzvláš,
+kdy jsem v zimì zhruba na dva mìsíce takøka úplnì pøerušil práci a a po zkouškovém se k tomu zase vrátil...
+  Sice jsem se snail o jakous takous dekompozici - vytvoøením nìkolika "vedlejších" .pas souborù s funkcemi a to tak, aby
+vdy kadá taková unita obsahovala tématicky blízké funkce a procedury, ale ve vısledku to není tak skvìlé, jak by bıt mìlo.
+Ještì vánìjším problémem je, e jsem navzdory dobrım programátorskım radám, psal nìkteré algoritmické postupy pøímo do
+procedur OnClick, co nevyhnutelnì vyústilo v to, pøed èím dobré programátorské rady varují - dva dìlají toté, ale není to
+toté, protoe kadé klikátko má svojí proceduru napsanou trošku jinak. Poslední dny jsem strávil spoustu èasu eliminací
+bìhovıch chyb z toho pramenících, je ovšem otázka, nakolik úspìšnì.
+  Bugù vùbec bylo (a urèitì v této verzi stále ještì je) v programu jako máku a právì jejich nekoneèné opravování, které se
+ovšem podobalo spíše boji s hydrou, mì pøivedlo k tomu, abych svojí dokumentaci zaèal takto. Znovu øíkám - kdybych mìl èas
+a prostor, zaèal bych znovu od základu a program pøedìlal. To ale nemám, a proto je tøeba pracovat s tím, co je k dispozici.
+Doufám aspoò, e se mi podaøí vzít si z toho ponauèení a mé programy v budoucnu, budou o to lepší. Nakonec se asi neøíká
+nadarmo, e na ta rozpálená kamna si kadı musí sáhnout sám. :-) 
+
+b) Úvod pochvalnı
+
+  No, tím jsem dostál úvodní povinnosti, protoe by bylo pokrytecké vydávat mùj program za dobrı bez jakéhokoliv komentáøe,
+kdy není pøíliš tìké nahlédnout fakt, e dobrı není, ale odteï pojïme pøedstírat, e tìch nìkolik desítek hodin, co jsem
+u nìj strávil, nebylo zbyteènıch. Je na èase pøedstavit "MP3" v trochu lepším svìtle a vyzdvihnout to, co umí, protoe pøeci
+jen - nìco umí. :)
+  V prvé øadì je to pøehrávání MP3 souborù. Okno pøehravaèe je inspirováno WIN Media Playerem, by samozøejmì poèet funkcí
+je mnohem skromnìjší. Ale MP3 soubory to pøehrává a to v relativnì hezkém prostøedí, které si uivatel do jisté míry mùe i
+uzpùsobit podle sebe.
+  To je ale pouze malá funkèí èást programu (ké bych tak zùstal jen u ní a radìji jí piloval do dokonalosti). Hlavní zamìøení
+programu MP3 je na správu MP3 souborù na disku a na editaci ID3 tagù. Program vytváøí "kolekce" MP3 souborù, co jsou de facto
+adresáøe na disku, kde se pracuje se soubory. MP3 soubory lze sdruovat do "Alb", co zas není nic jiného ne podadresáøe
+ukryté v adresáøi Kolekce. O tomto ale více ve vlastní dokumentaci. Jakmile je MP3 soubor v Kolekci, lze mu pøímo v programu
+upravovat ID3 tagy a to jak starší verzi ID3v1, tak novìjší ID3v2. Pracuje se pouze se sedmi "základními" tagy - Jméno, Autor,
+Album, Komentáø, Rok vydání, ánr a Èíslo skladby, by ID3v2 disponuje mnohem více monımi tagy, ale ty bìného èlovìka pøíliš
+nezajímají (a navíc je pak program jednodušší). Tagy lze editovat jednak pro kadou MP3 zvláš, ale je také moné nastavit je
+"globálnì" pro všechny soubory v konrkétním Albu (samozøejmì kromì názvu skladby).
+  Uivatel má bìhem práce k dispozici øadu nastavení - u zmiòovaného vzhledu, dále rozlišení a jazyka (AJ,ÈJ) a potom øadu
+programovıch nastavení, které budou podrobnìji popsány pozdìji.
+
+
+2.2 Co chybí
+
+Oproti posílané specifikaci, pøeci jen pár vìcí vypadlo :
+
+- Nebyla dokonèena podpora vıbìru jiného jazyka na angliètiny a èeštiny, by by to nebylo nijak zvláš obtíné
+- Nebyla implementována monost pøidávání a zobrazování textù k danım MP3 - to by asi nebylo nejjednodušší a èas tak radši vìnuji 
+  odlaïování
+
+Plus další vìci, které by ještì zaslouily dokonèit, ale u se na to nedostalo :
+
+- Texty hlášení (ShowMessage a MessageDlg) a nápovìdné "hinty" (parametr Hint komponent na formuláøích) jsou pouze v angliètinì - není 
+  to záleitost programová, jenom sednout k textovému editoru a pøepsat je, ale to by zabralo kus èasu a pomìrnì zbyteènì, øekl bych...
+- Není k dispozici .hlp soubor nápovìdy - to jsem chtìl mít, ale editor na .hlp soubory, co jsem si stáhl nefungoval a tak jsem to 
+  uloil k ledu
+- Chtìl jsem zjišovat ke kadé MP3 i její bitrate - jak je zakódovaná, to vím, ale neumím pøeèíst horní 4 bity èísla a ne bych to 
+  sloitì vymıšlel, tak jsem to radši vypustil...
+- MP3 není zrovna "kamarád" s jinımi aplikacemi. Synchronizace s nimi není pøíliš naimplementovaná (tedy spíš není vùbec) - a musím se 
+  pøiznat, e i kdybych jí zavést chtìl, tak na to asi moje znalosti zatím nestaèí...
+- Do "fronty" MP3 souborù k pøehrání nelze nic "dynamicky" pøidat - lze z ní sice libovolnì mazat a urèovat poøadí souborù, ale pøidat
+  lze jen tak, e se celı obsah vymae a naète novì (tedy není ádné "Pøidat do seznamu programu Windows Media Player"). Nebylo by to
+  asi tìké, ale spadá to do kategorie vìcí, které by byly sice fajn, kdyby byly, ale èasu nezbıvá...
+
+
+2.3 Upozornìní
+
+Pøed zaèátkem práce s programem nemùu vynechat toto upozornìní a èásteènì i varování :
+
+Program "MP3" pracuje s file systémem na disku a má k dispozici metodu jak rychle a pomìrnì efektivnì smazat celı adresáø. Sice
+by tuto metodu mìl vyuívat jenom na sloky, které si sám vytvoøí a pak je potøebuje zase znièit a stejnì tak mì se bìhem
+testování nic npokazilo, ale podle známé pouèky, e v libovolnì krátkém programu je alespoò jedna chyba (a co teprv kdy mùj
+program má øádek nìkolik tisíc a ještì se všemi vıše popsanımi problémy), je tøeba bıt opatrnı a snait se ho pokud mono
+nepustit k dùleitım slokám, o které by èlovìk nechtìl pøijít. Pøeci jen testoval jsem ho jenom já sám a kdo ví, èeho všeho je
+schopen.
+
+Samozøejmì se tímto nesnaím naznaèit, e jsem vypustil zrùdu, která bez varování zlikviduje pùlku file systemu, ale pøijde mi
+dobré a nutné upozornit na tuto teoritickou monost, e "nìkde je chyba, která èíhá, a se bude moct projevit".
+
+Další dobrou radou pøed spuštìním programu je zavøít všechny ostatní aplikace - zejména souborové manaery typu Total Commandera.
+Èasto mi toti pøi otevøeném TC (nejlépe ve sloce, kde jsem mìl u vytvoøenou instanci "Kolekce" a chtìl jsem jí nahradit novou)
+program generoval chybu "I/O Error 183" (co jak jsem vypozoroval znamená, e soubor je sice jakoby smazán (FileExists vrací
+false a ani v TC nebyl "vidìt"), ale nebyl smazán natolik, aby bylo moné pouít metodu Rewrite). Tuto chybu jsem byl schopen 
+eliminovat jenom tak, e pøi vyskytnutí se chyby nechám natvrdo spadnout program, co není právì to nejlepší... Ale pomìrnì 
+pomìrnì úèinnou prevencí je absence programu, kterı by se cpal do file systému, proto toto doporuèení.
+
+
+3. PROGRAMOVÁ DOKUMENTACE
+
+Zde se pokusím nìjak struènì a srozumitelnì popsat mùj program z programátorské stránky. Samozøejmì by bylo asi uhozené psát popisy
+jako "Kdy kliknete na tlaèítko 'Exit', program se metodou MessageDlg zeptá, zda má skonèit, a pokud zadáte 'Yes', tak skonèí".
+A jeliko je u díky samotné povaze Dephi takovıchto "klikátek" v programu pøehršel, budu se snait spíše globálnì popsat, co mùj
+program dìlá (má dìlat), ne e bych rozebíral kadou metodu. Samozøejmì pokud by díky tomu chybìlo i nìco, co cekem dùleité je,
+ale já to díky této taktice pøehlédl, jsem pøipraven tuto dokumentaci rozšíøit a doplnit.
+
+
+3.1 Základní myšlenky a funkce programu
+
+  Jak u bylo zmínìno - hlavní jednotku tvoøí "Kolekce", která sdruuje a zastøešuje všechny prvky. Má definované svoje jméno a popis
+viditelné pouze v rámci programu a potom cestu, která odkazuje na sloku na disku, kde je naše "Kolekce" umístìná. Nikde není øeèeno,
+e tato sloka musí bıt neexistující nebo prázdná (ale je to doporuèeno, zamezí to spoustì starostí). Øeèeno je ale to, e v této
+sloce budou vytvoøeny podadresáøe "_art" (na obrázky pøiøazené jednotlivım albùm a MP3 souborùm), "_root" (na vlastní MP3 soubory)
+a "_temp" (kam se pøesouvají soubory vymazané z Kolekce, ale aby se neztratily definitivnì, jsou zde do doby, ne je uivatel smae
+souborovım manaerem (a nebo ne vytvoøí novou kolekci ve stejném adresáøi - to toti obsahy tìchto tøí podsloek spolehlivì mae)
+a textovı soubor "Info.col", kde jsou ukládána všechna data o Kolekci (chtìl jsem soubor binární, ale nepovedlo se mi navrhnout
+datovou strukturu (zejména kvùli variabilnímu monoství Alb a MP3 souborù) tak, aby bylo moné vytvoøit nìjakı file of MyData. Proto
+je soubor textovı, co bohuel umoòuje štouravému uivateli se v nìm hrabat - korektnost vstupu je sice hlídána, ale mohlo by se
+podaøit "vhodnì" zmìnit údaje o Kolekci a vnést tak do programu zmatek. Doufejme ale, e takovı katastrofickı pøípad nenastane, u
+proto, e pøípona ".col" nepatøí mezi obvyklé pøípony textovıch souborù. :)
+  Nyní k zpùsobu, jak jsou uvnitø Kolekce organizovány a ukládány MP3 soubory. MP3 soubory jsou ukládány do "Alb". Pøitom kadá kolekce
+defaultnì obsahuje Album pojmenované "_root", které je ponìkud speciální - v programu se zobrazí jako "...", nelze mu editovat ádné
+vlastnosti a MP3 soubory, které patøí do "_root" Alba jsou uloeny pøímo v podadresáøi "\_root\". Take de facto nejsou v ádném
+Albu, ale pro jednotnost je na "_root" jako album nahlíeno (asi jako UNIXové soubory a "soubory", by jsem tento koncept vytvoøil
+ještì døív, ne jsem absolvoval první pøednášku o UNIXu :) ). Další Alba u vytváøí sám uivatel a na disku se projevují jako sloky
+v podadresáøi "\_root\". Nastavit jim lze jméno, krátkı popis, obrázek (90x90) a poøadí v rámci kolekce (1 - Poèet alb). Jméno sloky
+na disku je pak "Poøadí - Jméno Alba".
+  MP3 soubory se dají vkládat dvìma zpùsoby. Prvním je vkládání "po jednom", které uivatel ovládá - vybírá si jméno, zdrojovou cestu,
+album, do kterého je MP3 umístìna, obrázek a poøadí. Kdy by ale èlovìk chtìl vloit 50 MP3 souborù, kleplo by ho z toho - proto jsem
+pøidal monost "hromadného vıbìru", kterı je automatizován, ale uivatel za nìj platí tím, e nemùe nic nastavovat a všechny
+parametry se nastavují defaultnì (take kdy se mu nìco nelíbí, stejnì se nevyhne tomu, aby padesátkrát zobrazil dialogové okno a
+nastavil pøíslušné hodnoty :D). Fyzicky se MP3 soubory ukládají do pøíslušného Alba (nebo do "_rootu") a opìt ve formátu "Poøadí - 
+Jméno MP3".
+  Jakmile jednou máme v Kolekci nìjaká Alba a MP3 soubory, lze s nimi nìco dìlat. Mùj program je pøedevším o editaci ID3 tagù a to je
+taky hlavní náplò - Albu lze pøisoudit jisté "vıchozí hodnoty", které se pak automaticky nastaví všem MP3 souborùm v Albu, pøípadnì
+lze ID3 tagy editovat kadé MP3 zvláš. Pomocí pøepínaèe se pak pøeskakuje mezi ID3v2 a ID3v1 - defaultnì jsou nastaveny ID3v2 a 
+automatická konverze z ID3v2 na ID3v1, take pøepínat vlastnì ani není potøeba, ale kdyby nìkdo chtìl mít ID3v1 "extra", tak mùe.
+Opaèná automatická konverze z ID3v1 na ID3v2 moná není - ne e by to bylo obtíné implementovat, ale nepøišlo mi to jako "správná 
+vìc".
+Nedokáu teï sice pøesnì zformulovat dùvod proè, ale prostì to tam není. :)
+  Nakonec se dostáváme k samotnému Pøehravaèi. Ten stojí trošku stranou zbytku programu, protoe mimo to, e umí pøehrávat ty MP3 
+soubory (a i celı obsah Alb), které jsou v rámci Kolekce, umoòuje pøes TOpenDialog otevøít jakoukoliv dostupnı MP3 soubor (nebo i 
+více MP3). Pøehrávání samotné je pak trošku "ošizené", protoe probíhá pøes Delphi komponentu TMediaPlayer, která má tu vıhodu, e 
+obsahuje prakticky všechny funkce, které by èlovìk mohl pro pøehrávání chtít (dokonce umí tøeba triviálnì zjistit délku skladby (u 
+jsem se chystal to sloitì poèítat z velikosti souboru a bitrate :D)). Aby se èlovìk pøi pøehrávání nenudil, tak na "pozadí" probíhá 
+jakısi grafickı dìj - uivatel si mùe vybrat z celkem 4 rùznıch vzorù (o tom ale více níe v pøíslušné kapitole). A kdyby se mu to 
+nelíbilo, lze celé okno Pøehravaèe "stáhnout" do malého obdélníèku vlevo nahoøe, které stále zùstává plnì funkèní, ale nebrání v 
+nerušeném vıhledu na obrázek na pozadí.
+  Tím se dostáváme k posledním vymoenostem, kterımi program disponuje - uivatelská nastavení. Nejzajímavìjší a nejefektivnìjší je pro
+mì monost nastavení grafického vzhledu - jednak jsou k dispozici ètyøi pøeddefinované barevné kombinace, ale uivatel má volnost a 
+mùe si barvy "namíchat" zcela podle sebe - a k tomu ještì vybrat si zmiòovanı obrázek na pozadí hlavního formuláøe. Dále si uivatel 
+mùe vybírat mezi anglickım a èeskım jazykem (by èeština nemá pøeloené všechny hlášky a nìkterá "ø" nebo "è" se nevím proè 
+nezobrazují správnì... Moné je vybírat i rozlišení - 800*600, 1024*756 a 1280*800. Tato technika má svoje mouchy (nastavení 1280*800 
+na monitoru 800*600 by asi nedopadlo úplnì dobøe). Také dodám, e zmìna velikosti okna se nedokne velikosti vlastního "pracovního 
+prostoru" (ten je dìlanı tak, aby se vešel do okna 800*600), ale tıká se vlastnì jen obrázku na pozadí. Take vlastnì zcela zbyteèná 
+"featura", ale kdy u jsem jí jednou zaèal dìlat...
+  Detailnìjší technické øešení popsanıch "základní myšlenky" zmíním pozdìji. Toto by jako struènı pøehled mìlo staèit.
+
+
+3.2 Reprezentace dat
+
+Mám celkem v oblibì šikovnı datovı typ "record" a podle toho také má deklarace typù vypadá :
+
+TMP3 - tento typ slouí k reprezentaci MP3 souboru. Pøesnı vıznam jednotlivıch parametrù je pomìrnì dobøe popsán komentáøi
+       v deklaraèní èásti Main.pas, kam s dovolením odkáu, abych nevnášel zmatek sem.
+TPlayedMP3 - toto je zjednoušená verze, která obsahuje pouze ty údaje, které jsou dùleité pro Pøehravaè MP3 a ne pro Kolekci
+TAlbum - podobnì jako TMP3, avšak tento typ reprezentuje "Album"
+TCollection - øada parametrù je opìt stejná jako TMP3 a TAlbum, ale pøedevším tento typ obsahuje dvì dynamická pole - jedno
+              pro Alba a druhé pro MP3 soubory
+TConfig - uchovává všechna nastavení programu. Vıznam poloek opìt okomentován v deklaraèní èásti
+TID3v1 a TID3v2 - Struktury pro uchovánání hodnot ID3 tagù
+
+Pozn.: zde jsou struènì popsané jen základní a nejdùleitìjší datové typy, v programu jich je více, ale ty jsou èasto spíše lokální a 
+není tøeba je dle mého názoru pøíliš pitvat.
+
+
+Po spuštìní programu se objeví prostøedí se ètyømi "zálokami" (komponenta TPageControl a jednotlivé TTabSheet). Pojïme si je nyní 
+poøadì projít a u kadé si øíct to nejdùleitìjší z programovıch funkcí a procedur, které se k ní váou :
+
+
+3.3 Karta "Pøehravaè" ("Player")
+
+  Dominantním prvkem tohoto okna je "èerné pozadí" - komponenta TImage, kde probíhá "animace na pozadí" bìhem pøehrávání. To je také 
+asi to nejzajímavìjší, co se v tomto oknì dìje. Animace je øízena komponentou TTimer, která je aktivní pouze, pøehrává-li se soubor. 
+Pøi kadé události OnTimer se pak pøekreslí TImage podle typu zvolené animace. Animace jsou ètyøi typy :
+
+  1) "Flowers" spoèívá v tom, e se náhodnou barvou kreslí z jednoho pevného bodu èáry do náhodnıch bodù v jistém rozmezí okolo. 
+     Vısledkem je útvar, kterı (vzdálenì :) ) pøipomíná kytièku. Vypadá to ale pomìrnì hezky, kdy takováto kytièka "vykvétá".
+     Nevıhodou této metody je, e støed další kytièky se sice urèuje náhodnì (metoda random), ale v zásadì mají tyto støedy tendenci   
+     bıt na úhlopøíèce z levého horního do pravého dolního rohu - take pøi delším pøehrávání jich tam vznikne hromada navzájem 
+     pøekreslenıch v pruhu a levı dolní a pravı horní roh jsou v podstatì volné.
+  2) "Universe" má mnohem rychlejší cyklus ne zbylé metody (probíhá kadou 1 ms oproti 25 ms u ostaních) a nedìje se v ní nic jiného, 
+     e se na náhodné místo (resp. v jednom cyklu na 4 místa) TImage umístí pixel náhodné barvy. Vısledek mì osobnì pøipomíná pohled na 
+     hvìzdièky ve vesmíru. Menší nevıhodou je, e se èasem TImage hroznì "zaplácá" (díváme se doprostøed husté hvìzdokupy :D).
+  3) "Ameoba" je podle mì nejlepší z animací. "Mìòavku" tvoøí 4 vrcholy, spojené èarami náhodné barvy (která se v promìnlivém èasovém 
+     intervalu mìní, které neustále utíkají jedním z 20 rùznıch smìrù - "pohyb" je øešen tak, e podle indexu smìru se k aktuální x-ové
+     a y-ové èíslo pøiète pøíslušná hodnota z intervalu [-3,+3]. Pokud se vrchol dostane ke kraji, odrazí se náhodnì do jednoho z pìti
+     monıch (kadá pìtice pohybù má vlastní pìtici monıch odrazù tak, aby se vrchol nikdy nezaèal vracet zpìt). Pouèka o úhlu odrazu
+     a dopadu zde tedy neplatí, ale zase je to zajímavìjší.
+     V kadém cyklu se nejdøív "zaèerní" TImage (s obrázkem z minulého cyklu), provede se vıpoèet, zda vrchol nedosáhl kraje a není 
+     potøeba ho odrazit, poté se provede posun vrcholù v akutálním smìru a nakonec se nové pozice pospojují èarami. Vıslednı dojem je
+     podivné tìleso o 4 vrcholech, které se náhodnì pohybuje - chvíli vypadá jako obdélník, chvíli jako trojúhelník, chvíli se èáry
+     køií, chvíli ne, chvíli zabírá 2/3 TImage, chvíli jsou všechny vrcholy blízko u sebe... Podle mì opravdu nejpovedenìjší z animací
+  4) "Lights" jsou vlastnì variací na "Ameobu", která vznikla ve chvíli, kdy jsem špatnì nadefinoval pospojování vrcholù. Lights jsou 
+     dva pevné body v levém horním a pravém dolním rohu, ze kterıch z kadého vedou tøi èáry do tøí vrcholù, které se pohybují stejnì
+     jako vrcholy "Ameoby". Vıslednı dojem pak trochu pøipomíná paprsky svìtel na diskotéce, ale vıslednı estetickı efekt není dle mého
+     ani zdaleka takovı... Nicménì naimplementován tento vzor je.
+     
+  Z programového hlediska je asi nejzajímavìjší zpùsob, jakım se vybírá náhodná barva prvku. Vyzkoušel jsem nìkolik postupù, které ale
+  stále nebyly to pravé a jsem vytvoøil moná trochu kostrbatı, nicménì úèinnı systém spoèívající v tom, e barva se nejprve sestavuje
+  jako string (formát "$00RRGGBB") a jednotlivé sloky RR, GG a BB jsou vytvoøeny tak, e se zavolá random(15) a podle vısledného èísla
+  se pøiøadí char znak 0-9 resp A-F (èím je reprezentována hexadecimální soustava - jestli v Delphi jde pracovat pøímo s hexadecimální
+  soustavou jsem nezjistil). Tento string se ještì pro jistotu porovnává s hodnotou "$00000000", protoe èerná na èerném pozadí by byla
+  trochu špatnì vidìt (naštìstí 6x za sebou volaná metoda random jen velmi nepravdìpodobnì vrátí 6x za sebou 0). Tento string se pak
+  konverzní funkcí StringToColor pøevede na barvu a máme naší náhodnou barvu. Rozptyl hodnot byl bìhem testování pomìrnì velkı, take
+  si troufám tvrdit, e tento postup je vysoce funkèní a úèinnı, i kdy moná ne nejrychlejší.
+  
+Nyní opustme grafické rozhtraní a øeknìme si ještì nìco k vlastnímu pøehrávání :
+
+  Pøehrávání probíhá zhruba následovnì - uivatel urèí soubor(y). To mùe udìlat dvìma zpùsoby - buïto si vybere pøímo MP3 soubor pøes
+TOpenDialog (s filtrem pouze pro pøíponu ".mp3") a nebo mùe z dalších karet programu (viz níe) vybrat pøímo soubory z kolekce, se
+kterımi aktuálnì pracuje. Jediné dùleité, co se pøedává, je cesta k MP3 souboru. Tato cesta se toti pøiøadí komponentì TMediaPlayer
+jako parametr "pøehrávanı soubor" a tato komponenta si ho do znaèné míry sama "pøevıká" a spustí. Jediné, co musí naèíst sám program
+jsou ID3 tagy, které slouí k identifikaci pøehrávané poloky - ve formátu "Èíslo : Umìlec - Skladba" se zobrazí jako "Now Playing".
+Trochu mrzuté je, e pokud MP3 souboru ID3 tag (resp. verze (ID3v1 nebo ID3v2) se kterou program aktuálnì pracuje) chybí, zobrazí se
+"Unknown Artist - Unknown Track", ale tak nic nebrání uivateli nahrát si MP3 do Kolekce a chybìjící ID3 tagy si nastavit. :)
+  Vıznamnım prvkem pøehrávání (alespoò vizuálním) jsou "hodiny" (které mají teoretickı dosah a 9:59:59 (doufám, e se nikomu nepovede
+otestovat, co by se stalo pak :D) rostoucí po vteøinách a potom "play progress", co je TProgressBar, kterı roste s tím jak postupuje
+pøehrávání. Narozdíl od obvyklıch pøehravaèù se ale nedá kliknutím na nìj zmìnit místo pøehrávání - to jsem nevymyslel, jak technicky
+udìlat - take pøehrávání vdy probíhá od zaèátku do konce. Uivatel ho mùe pouze pøerušit.
+  Bìhem pøehrávání bìí 4 procesy - prvním je pøehrávající proces komponenty TMediaPlayer zodpovìdnı za vlastní vyluzování zvukù a pak
+tøi TTimery - jeden se stará animaci pozadí, druhı o posun "play progressu" a tøetí jednak vdy jednou za vteøinu posune hodiny a také
+testuje, zda u není konec skladby - porovnává uplynulı èas s uloenou hodnotou délky skladby urèenou jednou z procedur TMediaPlayer 
+(Zde musím s nelibostí poukázat na fakt, e tato komponenta obèas nezvládá urèit délku správnì - urèí delší èas, ne jakı MP3 skuteènì
+trvá. To sice nièemu technicky nevadí - kdy skladba dohraje, tak se v TMediaPlayer sama zastaví - ovšem bìí všechny další èinnosti 
+(animace pozadí, posun hodin) ale pøitom je ticho... Jestli si mùu troufnout odhadovat problém, tak v nestandardní bitrate dané MP3 
+nebo v pøítomnosti nestandardních dat v MP3 souboru - protoe asi jedninı rozumnı zpùsob, jak zjistit délku MP3 (pokud se nám nepodaøí 
+jí naèíst z nìjakého ID3v2 tagu) je vydìlit její velikost hodnotou bitrate, a pokud jsou v tomto nìjaké neshody... Ale jistì to nevím.
+Akorát mùu škodolibì poznamenat, e i v Windows Media Playeru jsem se se stejnım rozporem jednou kdysi setkal. :D )
+  Kdy pøíslušnı TTimer zjistí, e uplynulı èas pøehrávání u odpovídá dobì, po kterou mìla trvat MP3 skladba, vyvolá událost tlaèítka
+StopB (které mùe uivatel sám zmáèkout samozøejmì kdykoliv), kde se u vyøídí všechno potøebné pro zastavení. Pokud jsou ve "frontì"
+soubrù další èekající MP3, tak se také automaticky posune na tuto další skladbu (ne kdy Stop zmáèkne sám uivatel, protoe tento
+posun na další je implementován v metodì OnClick pøíslušného TTimeru a ne v samotné metodì StopB).
+  Tím se dostáváme k zajímavému elementu "Track Query", kterı je umístìn dole na stránce. Ten obsahuje odkazy na všechny aktuálnì 
+zpracovávané MP3. Kdy je jen jedna, není to tolik zajímavé, zajímavìjší je to a od dvou a více skladeb. Informace o tìchto MP3
+"ve frontì" jsou uchovávány v poli záznamù s polokami "poøadí", "jméno" a "cesta", pøièem parametr "jméno" je to, co se zobrazuje
+seøazeno podle "poøadí". Technicky vzato je "Track Query" (nebo "Tracklist") TListBox. Má pøiøazené pop-up kontextovou nabídku, která
+obsahuje metody "Play", "Delete", "Move Up" a "Move Down". Trošièku nešikovné je, e se nejprve musí na poloku jednou "vıraznì" 
+kliknout (øádek se zabarví modøe), aby se naplnil parametr TListBox.ItemIndex (nestaèí tedy pouze kliknout pravou myší a zobrazit si
+kontextovou nabídku). Kdy ale ItemIndex nìjakou hodnotu obsahuje, lze s polokou pracovat. 
+  "Play" pøirozenì pøehraje aktuální soubor. Tého se docílí dvojklikem na poloku. "Delete" poloku smae, pøièem za zmínku stojí 
+maximálnì to, co by èlovìk èekal - toti e kdy smae aktuálnì pøehrávanou poloku, zruší se její pøehrávání (s tím, e pokud to jde, 
+pøejde se na další poloku v seznamu). Metody "Move Up" a "Move Down" slouí k úpravì poøadí v seznamu. Tyto posuny neovlivní právì 
+pøehrávanou poloku (nedojde k ádnému "nahrazení"). Pokud se poloka dostane nad u aktuálnì pøehrávanou, pøehravaè sám od sebe se k 
+ní u nedostane. Po skonèení pøehrávání poslední poloky TrackListu se ukonèí pøehrávání a seznam se nevyprazdòuje - jeho obsah se mìní
+jen zásahy uivatele (naètením novıch souborù).
+  Dalším prvkem, kterı stojí za zmínku, je "Volume Controler". Jde o TTrackBar, kterı umoòuje v hodnotách 0-255 (vizuálnì pro 
+uivatele jsou tyto hodnoty klasickou trojèlenkou pøevádìny na procenta) nastavit hlasitost. Pracuje v souèinnosti s knihovnou TMixer, 
+kterou jsem pouze pøevzal z fóra Builder.cz, tudí nejsem schopen poreferovat o tom, jak pøesnì funguje. Funguje dobøe, pøièem ale 
+ovládá hlasitost na té nejvyšší úrovni - a tedy kdy by souèasnì s "MP3" byl puštìn Win Media Player a v "MP3" se ztlumí zvuk, pak i
+ve WinMP bude ztlumen, i kdy jeho interní hlasitost bude 100%. Aby toto nastavení nezùstavalo i po skonèení programu "MP3", zavedl
+jsem speciálnì pro tento úèel promìnnou typu byte, která pøi spuštìní programu uloí aktuální hodnotu hlasitosti systému a pøi
+ukonèování jí zase zpátky nastaví, ale nelze pøedejít popsanım kolizím bìhem spuštìní "MP3".
+  Poslední, co zde zmíním, je monost "skrytí" hlavního okna pomocí ikony vpravo nahoøe. Ono v tom pøíliš programátorského umu není -
+po stisknutí tlaèítka se prvku MainNav (hlavní okno) nastaví Visible:=false a naopak prvku SmallPanel ("malé okno") se nastaví Visible
+na true. Prvek SmallPanel pøitom obsahuje duplikáty všechny elementù potøebnıch pro pøehrávání (krom TrackListu a Animovaného pozadí).
+Tuto "vymoenost" jsem zavedl ze sponánního popudu, kdy jsem si bìhem testování jako pozadí nastavil pìknı panoramatickı obrázek
+a hlavní okno mi ho kazilo :) Nijak zvláš "chytrá" a "uiteèná" vìc to jinak není.
+
+
+3.4 Karta "Kolekce" ("Collection")
+
+  Aby se s kartou Kolekce dalo nìjak rozumnì pracovat, je tøeba zaloit/otevøít Kolekci. Ono se sice pøi spuštìní programu jakási
+"pseudokolekce" zakládá (v "\Collections\My Collection"), ale to je spíš jen pro inicializaci komponent, reálnì pracovat se s ní nedá.
+  Zakládání Kolekce probíhá pøes speciální okno, pøièem nastavit lze pouze jméno kolekce (kde je hlídáno, aby se ve jménì nevyskytly
+"speciální" znaky "\" a ":", které by mohly vnášet chaos), struènı popis a cestu ke kolekci (je pøitom implicitnì zakázáno zmiòováné 
+umístìní ("\Collections\My Collection") a to z toho dùvodu, e ona "pseudokolekce" se vytváøí pomìrnì èasto a vytváøí se bez ptaní, tak 
+aby uivatel nepøišel o uloená data). Program sleduje, jestli se v zadaném umístìní vyskytují známky pøedchozí existence kolekce (
+soubor Info.col a podadresáøe _art,_root a _temp). Nedokáe urèit, co si o nich má myslet, a proto se ptá uivatele jestli je smí 
+pøemazat. Kdy je mu to povoleno, tak je smae pomocí pomìrnì agresivní procedury DelDir (kterou jsem pøevzal ze švıcarskıch stránek o 
+Delphi a ze které jsem vyrozumnìl pouze to, e pracuje s ShellAPI) a vytvoøí si je znova prázdné. V adresáøích _art a _root pak vytvoøí 
+soubory WARNING.txt, které stroze upozròují uivatele na fakt, e pokud se bude externím programem (jako tøeba TC) hrabat v názvech 
+souborù zde umístìnıch, velmi pravdìpodobnì si je smae z Kolekce - protoe pochopitelnì mùj program je znova nenajde. Konkrétnì na 
+tomto kroku program èas od èasu padá se zmiòovanou hláškou "I/O Error 183" (viz 2.3 Upozornìní), protoe metoda DelDir je sice 
+agresivní, ale zøejmì zdaleka ne dokonalá. Bohuel ale musím pracovat s tím, co mám k dispozici - sám to lépe neumím. Jedinì implicitnì 
+zakázat vytváøení Kolekcí tam, kde u nìjaké (nebo jejich zbytky) jsou, ale to mi taky nepøijde jako dvakrát dobré øešení...
+  Kolekci lze dále nahrávat u existující - pøes TOpenDialog se vybere pøíslušnı soubor Info.col, pøièem u pøi naèítání si program
+automaticky vyhází ta Alba a MP3 soubory, které nenajde na disku tam, kde by mìly podle informací z Info souboru bıt. Pokud se mu
+nepodaøí vùbec soubor naèíst nebo nastane chyba bìhem naèítání dat, ohlasí chybu a kolekci prostì neotevøe. Pak ještì existuje v menu
+"zkratka" Open Last, která automaticky naète tu kolekci, se kterou se pracovalo naposled pøed minulım ukonèením programu. Zvláštností
+této volby je, e lze aplikovat pouze jednou, potom se znepøístupní. Pùsobí to moná trochu divnì, ale odpadá spousta programátorskıch 
+starostí :)
+  Kdy u je kolekce vytvoøena èi korektnì naètena, nastaví se globální boolská promìnná "Collection Statement" a tím se zpøístupní
+ovládací prvky vztahující se na práci s Kolekci, Alby a MP3 soubory (resp. ony ty prvky jsou pøístupné poøád, ale kdy Kolekce není,
+tak buïto nic nedìlají a nebo vyhazují hlášku, e "ádná kolekce není otevøena".
+  Co tedy lze dìlat. Tak jednak lze pøíkazem z menu celou Kolekci vzít a smazat :D (samozøejmì, e se program nejprve zeptá uivatele,
+zda skuteènì chce mazat. To se potom smaou všechny tøi podadresáøe, soubor Info.col a vyresetují se prvky formuláøe. Pokud èlovìk
+nechce mazat, tak mùe editovat. V prvé øadì vlastnosti Kolekce - jméno, popis i cestu. V pøípadì zmìny cesty ke Kolekci se vezmou 
+všechny relevantní sloky a soubory staré kolekce a pøesunou se pod nové umístìní. Na starou sloku se zavolá metoda RmDir, která jí
+smae, ale jen v pøípadì, e je prázdná, take by nemìlo hrozit, e se uitvateli smaou i jiné soubory, které jsou náhodou umístìny
+ve stejném adresáøi.
+  Dále uivatel vpravo nahoøe vidí øadu statistik o aktuální kolekci. K tìm není moc co øíct - sèítání hodnot dvou promìnnıch není
+ádná vìda, snad jenom k reprezentaci velikosti souborù - ta je toti uchovávána v Longintu v bytech, ale pro pohodlí uivatele, je
+mono si vybrat mezi interpretací v bytech, kB nebo MB, pøièem to, v jakıch jednotkách se má zobrazovat, je uloeno jako dìlitel,
+kterım se pøi vıpoètu dìlí celková velikost v bytech (tedy 1 pro B, 1000 pro kB a 1000000 pro MB). "Last Edit" je pak aktuální hodnota
+systémového data a èasu ("now"), která se automaticky pøepoèítává pøi jakékoliv úpravì kolekce.
+  Kdy se pøesuneme k sekci "Albums Included", tak tam u se koneènì zaèíná dít nìco zajímavého. V TListBoxu jsou vidìt všechna Alba,
+která daná kolekce obsahuje. Vdy je pøítomen alespoò prvek "..." odkazující na Album s indexem "0", kterım je u zmiòované "_root" 
+Album. Po kliknutí na prvek v ListBoxu se stane nìkolik vìcí - hlavnì se naplní globální promìnná "CurrentActiveAlbum" indexem, kterı
+ukazuje na pøíslušné Album v poli MP3Collection.Albums a tím se zpøístupní prvky pracující s Alby, které jsou jinak (dokud je pøíznak
+"CurrentActiveAlbum" nastaven na -1, co je implicitnì po spuštìní) znepøístupnìny. Dále se v TListBoxu napravo ("MP3s Included")
+zaktualizuje obsah tím, e se z pole MP3Collection.MP3s vyberou všechny ty, které maji jako Album nastavené to, které si teï uivatel
+vybral. Pokud nejsou nalezeny ádné takové MP3, vypíše se "No MP3s Included". Taky se samozøejmì aktualizují informaèní popisky vpravo
+vedle seznamu Alb, na èem zase není ádné umìní - jenom se pøiøadí uloené hodnoty.
+  Nakonec se dostáváme k pìtici "ovládacích" tlaèítek. "Play" dìlá to, co jsem u øíkal u Pøehravaèe - vezme všechny MP3 z aktuálního
+alba, nastrká je do "Track Query" a spustí první z nich. "Edit" pak umonuje v novém oknì editaci vlastností Alba - Jméno, Popis,
+Obrázek a Poøadí v rámci kolekce. Fyzickım obrazem Alba na disku je sloka umístìná v "\_root\" s názvem "Poøadí - Jméno". Pokud se
+tedy Jméno nebo Poøadí bìhem editace zmìní, program musí pøesunout celou sloku. To dìlá pomocí metody MoveDir (pøevzaté opìt z té
+švıcarské stránky o Delphi, take jak funguje pøesnì nepovím).
+
+3.5 Karta "Album" ("Album")
+
+3.6 Karta "MP3" ("MP3")
+
+
+4. SEZNAM SOUBORÙ APLIKACE
+¨
+Tyto soubory aplikace vyaduje ke spuštìní a bìhu (kontroluje si jejich existenici pøi startu a také pokadé, kdy je pouívá, a 
+nekompromisnì se ukonèuje, kdy je nenajde)
+
+\Lang\ENG.lng
+\Skins\Default\background.jpg
+Empty.jpg
+EmptyAlbum.jpg
+EmptyMP3.jpg
+
+Další soubory, které k aplikaci patøí, ale bez kterıch se obejde, kdy chybí
+
+\Collections\
+\Icons\*
+\Lang\CZE.lng
+\Skins\Dark Deep Ocean\background.jpg
+\Skins\Electric Blue\background.jpg
+\Skins\Nymphomaniac Phantasia\background.jpg
+Config.ini
+Icon.ico
+Reference.txt
+Manual.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. ZÁVÌR

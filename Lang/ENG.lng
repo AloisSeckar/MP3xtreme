@@ -1,0 +1,388 @@
+///////////////////////////////////////////////////////////////////////
+//                                                                   //
+//                    MP3 - Master Player 3xtreme                    //
+//                      mp3 player and organizer                     //
+//                                                                   //
+//                  Copyright © Ellrohir 2007-2008                   // 
+//                                                                   //
+//                                                                   //
+//    Page Info                                                      //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// *  Author:         *  Ellrohir [ ellrohir@seznam.cz ]           * //
+// *  Homepage:       *  http://www.browneyer.org/xmencz/ellrohir  * //
+// *  File:           *  ENG.lng                                   * //
+// *  Purpose:        *  English messages used in program          * //
+// *  System Version: *  1.0                                       * //
+// *  Last Modified:  *  2008-03-11 1500 GMT+1                     * //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// *  NOTE:           *  By editing this file you may simply       * //
+// *                  *  create your own language files            * //
+// *                  *                                            * //
+// *                  *  You only have to follow these points :    * //
+// *                  *  1) NEVER alter quotes in "// * * //"      * //
+// *                  *  2) NEVER alter parts before "="           * //
+// *                  *  3) ALWAYS left blank space after "="      * //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+///////////////////////////////////////////////////////////////////////
+
+// * GENERAL MESSAGES * //
+
+MSGSet = Set
+MSGClose = Close
+MSGOpen = Open MP3 File
+MSGOpenColl = Open MP3 Collection
+MSGFindCollLoc = Select Collection Path
+MSGOpenImgThumb = Select thumbnail
+MSGOpenImgBG = Select background image
+MSGChange = Change
+MSGNever = Never
+MSGCurrent = Current :
+MSGSave = Save
+MSGPlay = Play
+MSGEdit = Edit
+MSGCancel = Cancel
+MSGIgnore = Ignore
+
+MSGImage = Image :
+MSGDesc = Desc :
+MSGAlbum = Album :
+MSGName = Name :
+MSGPath = Path :
+MSGOrder = Order :
+MSGSize = Size
+MSGDuration = Duration :
+
+// * MENU MESSAGES * //
+
+MSGMenu1 = Program
+MSGPrgOpt1 = New Collection
+MSGPrgOpt2 = Switch Collection
+MSGPrgOpt3 = Exit
+MSGPrgOpt4 = Open Last
+MSGMenu2 = Player
+MSGPlrOpt1 = Play
+MSGPlrOpt2 = Browse...
+MSGPlrOpt3 = Settings
+MSGPlrOpt4show = Show Player
+MSGPlrOpt4hide = Hide Player
+MSGMenu3 = Collection
+MSGColOpt1 = Edit
+MSGColOpt2 = New
+MSGColOpt3 = Delete
+MSGMenu4 = Album
+MSGAlbOpt1 = Edit
+MSGAlbOpt2 = New
+MSGAlbOpt3 = Delete
+MSGMenu5 = MP3
+MSGMP3Opt1 = Edit
+MSGMP3Opt2 = Import
+MSGMP3ImpOpt1 = One File
+MSGMP3ImpOpt2 = Mass Selection
+MSGMP3Opt3 = Delete
+MSGMenu6 = Options
+MSGOptOpt1 = Skin
+MSGOptOpt2 = Resolution
+MSGOptOpt3 = Language
+MSGOptOpt5 = Background
+MSGSkinOpt2 = Customize...
+MSGLngOpt1 = English
+MSGLngOpt2 = Czech
+MSGLngOpt3 = User Defined
+MSGMenu7 = Help
+MSGHelpOpt1 = MP3 Help
+MSGHelpOpt2 = About
+
+// * PLAYER MESSAGES * //
+
+MSGPlayerTitle = Player
+MSGNowPlaying = Now Playing :
+MSGPause = PAUSED
+MSGTracklist = Tracklist :
+MSGNowPlaying = Now Playing
+
+// * COLLECTION MESSAGES * //
+
+MSGCollectionTitle = Collection
+MSGNoCollOpened = No Collection opened
+MSGCollectionInfo =  Collection Info 
+MSGCollectionStats =  Collection Stats 
+MSGCollAlbums = Albums :
+MSGCollMP3s = MP3s :
+MSGCollSize = Total Size
+MSGCollDuration = Total Duration :
+MSGLastEdit = Last Edit :
+MSGAlbumsIncluded =  Albums Included 
+MSGNoAlbum = No Album Selected
+MSGAlbMP3s = MP3s :
+MSGAlbAdd = Add Album
+MSGAlbDel = Delete
+MPGMP3SIncluded =  MP3s Included in Album 
+MSGNoMP3 = No MP3 Selected
+MSGMP3Album = Album :
+MSGMP3Add = Add MP3
+MSGMP3Del = Delete
+
+// * ALBUMS MESSAGES * //
+
+MSGAlbumTitle = Album
+MSGAlbumSelect =  Album 
+MSGAlbumSelection = Select Album :
+MSGNoAlbums = No MP3 Albums
+MSGAlbumInfo =  Album Info 
+MSGAlbSetCommon = Set Common Values
+MSGAlbSetCommonHint = These values will be set for all MP3s in current album
+MSGAutoSetTrackNumber = Auto-Set Track according to the order in album
+
+// * MP3s MESSAGES * //
+
+MSGMP3Title = MP3
+MSGMP3File =  MP3 File 
+MSGMP3AlbumSelect = Select Album :
+MSGMP3MP3Select = Select MP3 :
+MSGID3Tags =  ID3 Tags 
+MSGID3TagsChange = Tags :
+MSGID3Title = Title :
+MSGID3Artist = Artist :
+MSGID3Album = Album :
+MSGID3Comment = Comment :
+MSGID3Year = Year :
+MSGID3Genre = Genre :
+MSGID3Track = Track :
+
+// * SETTINGS MESSAGES * //
+
+MSGSettingsTitle = MP3 - Settings
+MSGMP3OptTitle = MP3 Options
+MSGPlayerOptTitle = Player Options
+MSGID3TagsTitle = ID3 Tags
+MSGBehaviourTitle = Behaviour
+MSGAppearanceTitle = Appearance
+MSGGenericBGTitle = Generic Background
+MSGWorkWith = Work with :
+MSGID3v1 =  ID3v1
+MSGID3v2 =  ID3v2 (Recommended)
+MSGAutoConvert =  Auto-Convert ID3v2 to ID3v1
+MSGAutoKill =  Auto-Delete older ID3v2 tags
+MSGOnStartup = On startup open :
+MSGBlankCol =  Blank Collection
+MSGLastCol =  Last edited collection
+MSGPathToCol = Default path to collections :
+MSGAppSkin = Skin :
+MSGAppRes = Resolution :
+MSGAppLang = Language :
+MSGAutoRewind =  Automaticaly rewind the tracks
+MSGFileSize = File size representation :
+MSGAutoDel = Source locations of MP3 files :
+MSGAutoDelTrue = Auto-Erease
+MSGAutoDelFalse = Keep
+MSGCommonValues = Common values of ID3 tags for imported MP3 :
+MSGAutoSetCVTrue = Auto-Set
+MSGAutoSetCVFalse = Keep Own
+
+// * SKIN SELECTION MESSAGES * //
+
+MSGCurrentSkinName = Current Skin :
+MSGSelectSkin = Select Skin :
+MSGBGColor = Backrground Color :
+MSGBGImg = Backrground Image :
+MSGFontColor1 = Font Color 1 :
+MSGFontColor2 = Font Color 2 :
+MSGFontColor3 = Font Color 3 :
+MSGTrackListBGColor = Tracklist Background :
+
+// * WIZARDS MESSAGES * //
+
+MSGWizardCollection = Collection
+MSGWizardAlbum = Album
+MSGWizardMP3 = MP3
+MSGOkBCreate = Create
+MSGOkBImport = Import
+MSGOkBEdit = Update
+MSGImport = Importing...
+
+MSGAlbInfo =  Album Info 
+MSGMP3Info =  Collection Info 
+ 
+// * OTHER MESSAGES * //
+
+MSGLangEng = English
+MSGLangCze = Czech
+
+MSGNoHelp = Help file is not available in this program version.
+
+// * ERROR MESSAGES * //
+
+FEMissingFiles = FATAL ERROR : Missing required file(s) !!! One or more files necessary for running the application cannot be located. The application will be now terminated. (Check the list of required files in manual.)
+FEMissingFile1 = FATAL ERROR : Essential file ('
+FEMissingFile2 = ') corrupted or missing. The MP3 has to be terminated now (all your work is saved). Be sure you fix the file in order to further use of MP3 program.
+FECannotOpenFile = FATAL ERROR : Failed to open file for writing. MP3 has to terminate now.
+
+ECannotSaveSettings = ERROR : Serious problem occured !!!  MP3 was unable to save your new settings! MP3 is unfortunately unable to handle this problem right now. Try to restart your application to eliminate this problem.
+ECannotSaveCollection = ERROR : Serious problem occured !!!  MP3 was unable to save your Collection data! MP3 is unfortunately unable to handle this problem right now.  Try to restart your application to eliminate this problem.
+ECannotLaunchMP3 = ERROR : Some Error Occured - This mp3 file cannot be loaded and launched.  
+ENoCollection = ERROR - No collection opened. Create or load a collection first. 
+ECorruptedImageMP3 = ERROR - Saved image for this MP3 file corrupted or missing. The image was reseted to default.
+ECorruptedImageAlb = ERROR - Saved image for this Album corrupted or missing. The image was reseted to default.
+ECorruptedImageBG = ERROR - Selected Skin Background image cannot be loaded. Default Background image was used. 
+EInvalidAlbum = ERROR - Invalid Album name.
+EInvalidInput = ERROR - Invalid input (Numerical value expected).
+EInvalidPath = ERROR - Invalid path.
+EInvalidMP3Input = ERROR - Invalid input (MP3 File source path expected).  
+ECannotImportMP3 = ERROR - Unable to import MP3 file. Unknown error occured.    
+EDirectoryExists = ERROR - Directory with same name already exists in this collection. MP3xtreme is unable to overwrite this directory. Please change the file name or the name of the directory via any external program.    
+ECannotCreateDir = ERROR - Specified directory cannot be created. Please check the path and retry.
+ECannotSaveTags = ERROR - Unable to save ID3 tags to current mp3 file. Please try again.   
+ECannotLoadCollection = ERROR - Data cannot be loaded. Source file is either corrupted or missing. Collection cannot be loaded.  
+EInaccessibleDirN = ERROR - Cannot access directory for moving. Album Name won't be changed. Make sure Player or other external program doesn't work with files in current Album right now and try again.
+EInaccessibleDirO = ERROR - Cannot access directory for moving. Album Order won't be changed. Make sure Player or other external program doesn't work with files in current Album right now and try again.                               
+
+WMissingData = WARNING : Some config data missed or corrupted. Default values were used instead. Please go to Options if you want to set your custom again.
+WCorrupted1 = WARNING : Corrupted records ( 
+WCorrupted2 =  Albums and 
+WCorrupted3 =  MP3s ) was found in the info file. Those records were automatically removed.
+
+NID3v1 = NOTE - When working with ID3v1 tags, MP3 is unable to provide automatic conversion to ID3v2.
+
+QConfirmDelGeneral = This action is permanent and cannot be undone.
+QConfirmDelAlb = Are you sure you want to delete this Album with all associated MP3 files?
+QConfirmDelColl = Are you sure you want to delete this Collection with all associated Albums, Images and MP3 files?
+QQuit = Are you sure you want to quit?
+QRewriteColl = MP3 detected previous instance of MP3 Collection (or it''s remains) in selected directory. Are you sure you want to lost all previous data and create new collection in this location?)
+QRewriteMP3 = MP3 file with same name already exists in selected Album. Overwrite?
+
+XNoMP3 = No MP3 selected.
+XNoAlbum = No Album selected.
+XRemoveMP3 = Selected MP3 was sucessfully removed.
+XRemoveAlb = Selected Album was sucessfully removed.
+XRemoveColl = Collection was sucessfully removed.
+XEmptyAlbum = Selected Album contains no MP3 files.
+XOptionsUpdatedProgram = Program Options updated.
+XOptionsUpdatedPlayer = Player Options updated.
+XCannotDeleteRoot = Root album cannot be removed from collection.
+XDirNotAllowed = This exact directory is protected from creating collections in. Please select any another directory.
+XCharNotAllowed = Char "_" not allowed as first letter of name parameter (reserved character). Please change name of currently edited element.
+XCharInvalid = Chars "\" and ":" not allowed in name.
+
+// * HELP * //
+
+HLPHideMainNav = Hide main application form
+HLPShowMainNav = Show main application form
+HLPPlayB = Play current MP3 file
+HLPPauseB = Pause current MP3 file
+HLPStopB = Stop playing
+HLPBrowseB = Open MP3 file(s)
+HLPVolumeC = Adjust volume
+HLPPlayTr = Now Playing :
+HLPPlayTm = Elapsed time
+HLPElapsedT = Elapsed time
+HLPTrackQ = Currently loaded tracks
+
+HLPCollNameEx = The name of your Collection
+HLPCollDescEx = A few words describing your Collection
+HLPCollPathEx = The path to your Collection
+HLPCollEdit = Change information about your Collection
+HLPCollStatsAlbEx = Number of Albums included in your Collection
+HLPCollStatsMP3Ex = Number of MP3 files included in your Collection
+HLPCollStatsSizeEx = Total size of your Collection
+HLPCollStatsDurationEx = Total playing time of all MP3 files in your Collection
+HLPCollStatsLastEditEx = Time of last modification
+HLPAlbListEx = Select Album from your Collection
+HLPAlbNameEx = Name of selected Album
+HLPAlbMP3Ex = Number of MP3 files included in this Album
+HLPAlbSizeEx = Total size of this Album
+HLPAlbDurationEx = Total playing time of all MP3 files in this Album
+HLPMP3ListEx = Select MP3 from selected Album
+HLPMP3NameEx = Name of selected MP3
+HLPMP3AlbEx = Parent Album name
+HLPMP3SizeEx = Size of this MP3 file
+HLPMP3DurationEx = Playing time of this MP3 file
+HLPPlayAEx = Play this album via Player
+HLPEditAEx = Edit details of this Album
+HLPAlbUpEx = Move this Album up (decrease it's Order by one)
+HLPAlbDownEx = Move this Album down (increase it's Order by one)
+HLPAddAEx = Add new Album into your Collection
+HLPDelAEx = Remove Album from your Collection
+HLPPlayMEx = Play this MP3 file via Player
+HLPEditMEx = Edit details of this MP3 file
+HLPMP3UpEx = Move this MP3 file up (decrease it's Order by one)
+HLPMP3DownEx = Move this MP3 file down (increase it's Order by one)
+HLPAddMEx = Add new MP3 file into your Collection
+HLPDelMEx = Remove MP3 from your Collection
+
+HLPID3ChangerEx = Change version of ID3 Tags
+
+HLPCurrentAlbumNameEx = Name of selected Album
+HLPCurrentAlbumImageEx = Thumbnail of selected Album
+HLPIgnoreEx = This item won't be set
+HLPAutoSetTrackNumberEx = MP3 will take MP3 file order and convert it into Track tag value
+HLPID3SaveAEx = Save current ID3 tags
+
+HLPID3TitleAEx1 = ID3 tag for song title
+HLPID3ArtistAEx1 = ID3 tag for song performer
+HLPID3AlbAEx1 = ID3 tag for album
+HLPID3CommentAEx1 = ID3 tag for own comment
+HLPID3TrackAEx1 = ID3 tag for song title
+HLPID3TrackAEx2 = Set ID3 tag Track
+HLPID3GenreAEx1 = ID3 tag for song genre 
+HLPID3GenreAEx2 = Set ID3 tag Genre
+HLPID3YearAEx1 = ID3 tag for release year
+HLPID3YearAEx2 = Set ID3 tag Year
+
+HLPCurrentMP3NameEx = Name of selected MP3
+HLPCurrentMP3ImageEx = Thumbnail of selected MP3 
+
+HLPCollName = Specify the name of your collection
+HLPCollDesc = A few worlds to describe your collection
+HLPCollPath = Specify the path to your collection
+
+HLPMP3Name = Specify the name of this MP3
+HLPMP3Path = Specify the source path of this MP3
+HLPMP3Album = Specify the parent album of this MP3
+HLPMP3Image1 = A little thumbnail describing this MP3
+HLPMP3Image2 = Select thumbnail for this MP3
+HLPMP3Order = Specify the order of this MP3 in parent album
+
+HLPAlbName = Specify the name of this Album
+HLPAlbDesc = A few worlds to describe this Album
+HLPAlbImage1 = A little thumbnail describing this Album 
+HLPAlbImage2 = Select thumbnail for this Album
+HLPAlbOrder = Specify the order of this Album in collection
+
+HLPOptID3v1 = MP3xtreme will defaultly work with ID3v1 tags
+HLPOptID3v2 = MP3xtreme will defaultly work with ID3v2 tags (recommended)
+HLPConvertTags = ID3v2 tag values will be automatically converted to ID3v1 (recommended)
+HLPKillTags = MP3xtreme will destroy any previous instances of ID3v2 tags in MP3 file when saving new one
+HLPStartOpt1 = MP3xtreme will start with no collection opened
+HLPStartOpt2 = MP3xtreme will try to open last edited collection after startup
+HLPWDirPath = A default path where collections should be stored
+HLPFileOpt1 = Source locations of imported MP3 files will remain (recommended)
+HLPFileOpt2 = Source locations of imported MP3 files will be deleted
+HLPASetOpt1 = ID3 tags of imported MP3 files won't be automatically edited (recommended)
+HLPASetOpt2 = Common values of ID3 tags set for album will be automatically applied on imported MP3 files
+HLPSizeOpt1 = The file sizes will be displayed in Bytes
+HLPSizeOpt2 = The file sizes will be displayed in KiloBytes (recommended)
+HLPSizeOpt3 = The file sizes will be displayed in MegaBytes
+HLPMP3Skin1 = Select graphic skin you want to have in your MP3xteme from the list
+HLPMP3Skin2 = Specify your own graphic skin you want to have in your MP3xteme
+HLPMP3Res = Select main program window resolution
+HLPMP3Lang = Select prefered language
+HLPBGOpt1 = "Ameoba" animation pattern will be used on Player's background
+HLPBGOpt2 = "Flowers" animation pattern will be used on Player's background
+HLPBGOpt3 = "Universe" animation pattern will be used on Player's background
+HLPBGOpt4 = "Lights" animation pattern will be used on Player's background
+HLPARewind = Played MP3 tracks will be automatically rewind and re-launch after finish
+
+HLPBGColor1 = This color is used as background color for all program windows and forms
+HLPBGColor2 = Set Background Color
+HLPBGImage1 = This image is displayed on background of main form and in settings window
+HLPBGImage2 = Set Background Image
+HLPFontColor11 = This color is used for most of the fonts
+HLPFontColor12 = Set Font Color 1
+HLPFontColor21 = This color is mostly used for headlines
+HLPFontColor22 = Set Font Color 2
+HLPFontColor31 = This color is only used for Player's digital clocks
+HLPFontColor32 = Set Font Color 3
+HLPTrackBGColor1 = This color is only used as background of Player's tracklist
+HLPTrackBGColor2 = Set Tracklist Background Color
+
+// * END * //

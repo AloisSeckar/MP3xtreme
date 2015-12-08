@@ -1,0 +1,3 @@
+WARNING : Do not rename files in this directory in any case !!!
+
+If you alter any file name other way than via MP3xtreme, the references will be automatically removed from your collection !!!

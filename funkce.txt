@@ -1,0 +1,33 @@
+MP3 - Master Player 3treme
+
+URÈENÍ : 
+- pøerhravaè a manažer MP3 souborù
+SPECIFIKACE :
+- autor : Alois Seèkár
+- technologie : Borland Delphi 6.0 Personal
+- verze : 1.0
+
+FUNKCE :
+1) Pøehrávání MP3 souborù
+   - pomocí Delphi komponenty TMediaPlayer
+   - umožòuje pøehrát jeden nebo více souborù
+   - naètení klasickým TOpenDialog oknem nebo pøímo kliknutím v rámci programu (viz následující body)
+   - umožòuje mìnit poøadí, pøidávat a mazat soubory ve frontì èekající na pøehrání
+   - pro oživení bìhem pøehrávání zobrazuje na TImage komponentu rùzné jednoduché grafické vzory
+2) Správa MP3 souborù
+   - umožòuje zakládat nové složky (kolekce) a podsložky (alba) na disku, do kterých lze pøidávat mp3 soubory
+   - umožòuje do tìchto složek pøesouvat mp3 soubory z jiných umístìní (po jednom nebo pro urychlení i po vìtším výbìru)
+   - umí mazat stará umístìní importovaných souborù - záleží na volbì uživatele
+   - umožòuje zmìnit jméno mp3 souboru na disku
+   - umožòuje editaci ID3 tagù mp3 souborù
+   - umožòuje mìnit poøadí mp3 souborù v rámci složky (podsložky) pro pøehrávání (pøidání èísla pøed vlastní jméno souborù)
+   - umožòuje editovat a zobrazovat struèné orientaèní popisy a informace o  mp3 souborech
+   - umožòuje pøidání a zobrazování textù k importovaným mp3 souborùm
+3) Správa složek (alb)
+   - umožòuje do tìchto složek pøidávat mp3 soubory a operativnì mìnit jejich poøadí (viz pøedchozí bod)
+   - umožòuje editovat a zobrazovat struèné orientaèní popisy a informace o albech
+4) Další funkce
+   - uživatel mùže vybírat z více implementovaných grafických vzorù, který mu více vyhovuje
+   - uživatel si mùže pøizpùsobovat barevný vzhled aplikace a velikost okna - nìkolik výchozích vzhledù na výbìr + možnost vytvoøit si vlastní
+   - uživatel má možnost vybrat si z øady nastavení chování pøehravaèe a manažeru (napø. ono mazaní starých umístìní mp3 souborù nebo zaokrouhlení velikosti souborù (byty, kB èi MB))
+   - podpora více jazykù (angliètina a èeština standardnì) s možností snadno pøidávat nové jazykové soubory vytvoøené uživatelem v textovém editoru
